@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         )
             return
 
-        expressionTextView.append("$operator")
+        expressionTextView.append(operator)
 
         val ssb = SpannableStringBuilder(expressionTextView.text)
         ssb.setSpan(
