@@ -2,8 +2,9 @@
 **+(덧셈), -(뺄셈), /(나눗셈), \*(곱셈), %(모듈러), ()(괄호)를 활용한 기본 계산기 입니다.   
 계산 기록이 자동으로 저장되며 일괄 삭제가 가능합니다.**
 
-![calculator](https://user-images.githubusercontent.com/67175445/183231335-4724d5c3-3944-4fc4-870f-e714e24d060e.png)
-![calculator_history](https://user-images.githubusercontent.com/67175445/183231547-814838f0-87bf-4a33-b00e-d1e1352b332e.png)
+![Screenshot_20220806_153007](https://user-images.githubusercontent.com/67175445/183237445-59809eb2-8e3f-4a71-b6c1-b3ab128d0439.png)
+![Screenshot_20220806_153057](https://user-images.githubusercontent.com/67175445/183237446-7864f454-cb33-4b22-9513-1e89494330c6.png)
+
 
 # 연산 알고리즘
 ### Evaluation of Postfix Expression
