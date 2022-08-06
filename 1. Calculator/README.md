@@ -10,15 +10,15 @@
 ![Infix-Evaluation](https://user-images.githubusercontent.com/67175445/183234080-47eec252-e2d5-49ec-be91-5ee9862aafd5.png)
 ### 예외
 계산기는 숫자를 추가할 때마다 실시간으로 현재까지의 수식을 계산하여 보여주어야 한다. 
-따라서 여는 괄호(***'('***)후에 닫는 괄호(***')'***)가 없을 수 있는데, 
-이런 경우에는 operator에서 pop한 값이 여는 괄호(***'('***)가 아닐 때까지 계속 pop을 해준다.
+따라서 여는 괄호( **'('** )후에 닫는 괄호( **')'** )가 없을 수 있는데, 
+이런 경우에는 operator에서 pop한 값이 여는 괄호( **'('** )가 아닐 때까지 계속 pop을 해준다.
 ### Complexity :   
 Expression의 char를 하나씩 push 또는 pop을 하기때문에 시간복잡도는 ***O(N)*** 이다.
 
 
 ## Layout
-1. TableLayout (키패드)
-2. ContrainLayout
+1. ConstraintLayout
+2. TableLayout (키패드)
 3. LinearLayout (계산 기록의 리스트)
 
 ## Room (ver. 2.2.6)
