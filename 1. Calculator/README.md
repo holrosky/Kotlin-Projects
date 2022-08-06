@@ -5,6 +5,13 @@
 ![calculator](https://user-images.githubusercontent.com/67175445/183231335-4724d5c3-3944-4fc4-870f-e714e24d060e.png)
 ![calculator_history](https://user-images.githubusercontent.com/67175445/183231547-814838f0-87bf-4a33-b00e-d1e1352b332e.png)
 
+## 연산 알고리즘
+### Evaluation of Postfix Expression
+![Infix-Evaluation](https://user-images.githubusercontent.com/67175445/183234080-47eec252-e2d5-49ec-be91-5ee9862aafd5.png)
+### Complexity :   
+Expression의 char를 하나씩 push 또는 pop을 하기때문에 시간복잡도는 ***O(N)*** 이다.
+
+
 ## Layout
 1. TableLayout (키패드)
 2. ContrainLayout
