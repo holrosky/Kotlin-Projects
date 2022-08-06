@@ -1,7 +1,7 @@
 # Kotlin-Projects (1. 계산기)
 **+(덧셈), -(뺄셈), /(나눗셈), \*(곱셈), %(모듈러), ()(괄호)를 활용한 기본 계산기 입니다.   
 계산 기록이 자동으로 저장되며 일괄 삭제가 가능합니다.**
-# 완성본
+
 ![calculator](https://user-images.githubusercontent.com/67175445/183231335-4724d5c3-3944-4fc4-870f-e714e24d060e.png)
 ![calculator_history](https://user-images.githubusercontent.com/67175445/183231547-814838f0-87bf-4a33-b00e-d1e1352b332e.png)
 
