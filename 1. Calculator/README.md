@@ -17,13 +17,15 @@ Expression의 char를 하나씩 push 또는 pop을 하기때문에 시간복잡�
 
 
 # Layout
-1. ConstraintLayout
-2. TableLayout (키패드)
-3. LinearLayout (계산 기록의 리스트)
++ ConstraintLayout
++ TableLayout   
+    \- 키패드
++ LinearLayout   
+    \- 계산 기록의 리스트
 
 # Room (ver. 2.2.6)
 **Local DB 개념인 Room을 활용하여 유저가 계산한 기록을 저장한다.**
-1. DAO 클래스   
++ DAO 클래스   
 ```kotlin
 @Dao
 interface HistoryDAO {
@@ -38,7 +40,7 @@ interface HistoryDAO {
     fun deleteAll()
 }
 ```
-2. Model 클래스
++ Model 클래스
 ```kotlin
 @Entity
 data class History(
@@ -47,7 +49,7 @@ data class History(
     @ColumnInfo(name = "result") val result: String?
 )
 ```
-3. Database 클래스
++ Database 클래스
 ```kotlin
 @Database(entities = [History::class], version = 1)
 abstract class AppDatabase : RoomDatabase(){
