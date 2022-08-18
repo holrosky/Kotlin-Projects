@@ -56,7 +56,7 @@ alarmManager.setInexactRepeating(
 + ## AlarmManager Type
   - ELAPSED_REALTIME : 기기가 부팅된 후 경과한 시간을 기준으로, 상대적인 시간을 사용하여 알람을 발생시킨다. 기기가 절전모드(doze)에 있을 때는 알람을 발생시키지 않고 해제되면 발생시칸다.
   - ELAPSED_REALTIME_WAKEUP : ELAPSED_REALTIME와 동일하지만 절전모드일 때 알람을 발생시킨다.
-  - RTC : Real Time Clock을 사용하여 알람을 발생시킵니다. 절전모드일 때는 알람을 발생시키지 않는다.
+  - RTC : Real Time Clock을 사용하여 알람을 발생시킨다. 절전모드일 때는 알람을 발생시키지 않는다.
   - RTC_WAKEUP : RTC와 동일하지만 절전모드일 때 알람을 발생시킨다.
 
 + ## 디바이스가 절전모드일 때도 동작하게 만들기
