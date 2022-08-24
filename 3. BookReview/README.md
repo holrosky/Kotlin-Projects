@@ -98,6 +98,13 @@ abstract class AppDatabase: RoomDatabase() {
 ```
 
 # RecyclerView
+RecyclerView와 ListView는 비슷하지만 ***RecyclerView는 ListView의 단점을 보완했다.***
+ListView는 스크롤을 하여 View가 화면 밖을 나가면 그 View를 제거 후 나중에 다시 생성을 하지만 
+***RecyclerView는 ViewHolder로 View를 생성하였다가 필요할때 재사용한다.***
+따라서 RecyclerView는 스크롤을 할때 버벅이는 현상을 줄였고 ***메모리 측면에서도 ListView 보다 우위를 점한다.***
+
+
+
 API를 통해 받아온 도서 정보를 ***RecyclerView***의 ***Adapter***에 넘겨주어 데이터를 바인딩한다. 도서의 겉표지 이미지는 ***Glide*** 라이브러리를 활용하여 ImageView에 로드한다.
 ```kotlin
 inner class BookItemViewHolder(private val binding: ItemBookBinding) :
