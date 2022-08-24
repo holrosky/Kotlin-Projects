@@ -7,9 +7,9 @@
 ![3_4](https://user-images.githubusercontent.com/67175445/186327888-a587eed4-1495-4386-b14e-7809d570f703.png)
 
 
-# Retrofit (ver. 2.9.0)
+# Retrofit2 (ver. 2.9.0)
 Retrofit을 이용하여 도서 API를 간편하게 활용할 수 있다. Retrofit은 interface인 service 클레스 안에 함수를 명시하고 각 함수가 
-***call***하는 ***DTO (Data Transfer Object)***를 생성하여 API를 통해 받은 값을 저장할 수 있다. ***Converter***는 ***json 데이터를 객체로 변환시켜주는 gson***으로 설정한다.
+***call***하는 ***DTO (Data Transfer Object)*** 를 생성하여 API를 통해 받은 값을 저장할 수 있다. ***Converter***는 ***json 데이터를 객체로 변환시켜주는 gson***으로 설정한다.
 
 + Service 클래스   
 ```kotlin
