@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kotlin_project.bookreview.databinding.ItemHistoryBinding
 import com.kotlin_project.bookreview.model.History
 
-class HistoryAdapter(val historyDeleteClickedListener: (String) -> Unit): ListAdapter<History, HistoryAdapter.HistoryItemViewHolder>(diffUtil) {
+class HistoryAdapter(private val historyDeleteClickedListener: (String) -> Unit, private val historyTextClickedListener: (String) -> Unit): ListAdapter<History, HistoryAdapter.HistoryItemViewHolder>(diffUtil) {
 
     inner class HistoryItemViewHolder(private val binding: ItemHistoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -18,6 +18,10 @@ class HistoryAdapter(val historyDeleteClickedListener: (String) -> Unit): ListAd
 
             binding.deleteImageButton.setOnClickListener{
                 historyDeleteClickedListener(historyModel.keyword.orEmpty())
+            }
+
+            binding.keywordTextView.setOnClickListener{
+                historyTextClickedListener(historyModel.keyword.orEmpty())
             }
         }
     }
@@ -39,11 +43,11 @@ class HistoryAdapter(val historyDeleteClickedListener: (String) -> Unit): ListAd
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<History>() {
             override fun areItemsTheSame(oldItem: History, newItem: History): Boolean {
-                return false
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(oldItem: History, newItem: History): Boolean {
-                return false
+                return oldItem.uid == newItem.uid
             }
         }
     }

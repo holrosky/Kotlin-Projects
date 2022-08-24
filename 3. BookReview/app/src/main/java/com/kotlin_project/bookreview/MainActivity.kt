@@ -2,6 +2,7 @@ package com.kotlin_project.bookreview
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -139,6 +140,9 @@ class MainActivity : AppCompatActivity() {
     private fun initHistoryRecyclerView() {
         historyAdapter = HistoryAdapter(historyDeleteClickedListener = {
             deleteSearchKeyword(it)
+        }, historyTextClickedListener = {
+            binding.searchEditText.setText(it)
+            search(it)
         })
 
         binding.historyRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -146,13 +150,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initBookRecyclerView() {
-        bookAdapter = BookAdapter()
+        bookAdapter = BookAdapter(ItemClickedListener = {
+            val intent = Intent(this, BookDetailActivity::class.java)
+            intent.putExtra("bookModel", it)
+            startActivity(intent)
+        })
 
         binding.bookRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.bookRecyclerView.adapter = bookAdapter
     }
 
     private fun saveSearchKeyword(keyword: String) {
+        Thread {
+            val savedSearchKeywords = db.historyDao().getAll()
+
+            savedSearchKeywords.forEach {
+                if (it.keyword.equals(keyword)) {
+                    db.historyDao().delete(keyword)
+                    return@forEach
+                }
+            }
+        }.apply {
+            start()
+            join()
+        }
+
         Thread {
             db.historyDao().insertHistory(History(null, keyword))
         }.start()
