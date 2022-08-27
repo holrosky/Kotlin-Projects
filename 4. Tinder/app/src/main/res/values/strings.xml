@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Tinder</string>
+    <string name="login">로그인</string>
+    <string name="signup">회원가입</string>
+    <string name="facebook_app_id">760271745300003</string>
+    <string name="fb_login_protocol_scheme">fb760271745300003</string>
+    <string name="facebook_client_token">d56d36f71387d6594b2714f700032ff2</string>
+</resources>
