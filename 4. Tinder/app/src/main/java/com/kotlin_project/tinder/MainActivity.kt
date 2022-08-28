@@ -18,6 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
 
         if (Firebase.auth.currentUser == null)
-            startActivity(Intent(this, Login::class.java))
+            startActivity(Intent(this, LoginActivity::class.java))
     }
 }

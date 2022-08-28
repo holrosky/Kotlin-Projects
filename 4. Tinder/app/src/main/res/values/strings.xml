@@ -5,4 +5,8 @@
     <string name="facebook_app_id">760271745300003</string>
     <string name="fb_login_protocol_scheme">fb760271745300003</string>
     <string name="facebook_client_token">d56d36f71387d6594b2714f700032ff2</string>
+    <string name="hint_email">이메일주소</string>
+    <string name="hint_password">비밀번호</string>
+    <string name="login_with">Login with</string>
+    <string name="your_web_client_id">986767986824-aah5qlr6n5joklfvlgcm0rgvie7louik.apps.googleusercontent.com</string>
 </resources>
