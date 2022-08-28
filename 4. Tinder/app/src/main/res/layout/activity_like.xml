@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dislike"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/arrowDislike"
+        app:layout_constraintEnd_toEndOf="@id/arrowDislike"
+        app:layout_constraintStart_toStartOf="@id/arrowDislike" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/like"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/arrowLike"
+        app:layout_constraintEnd_toEndOf="@id/arrowLike"
+        app:layout_constraintStart_toStartOf="@id/arrowLike" />
+
+    <ImageView
+        android:id="@+id/arrowDislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_arrow_dislike"
+        app:layout_constraintBottom_toTopOf="@id/card_stack_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/swipe"
+        android:textColor="@color/orange_500"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/arrowDislike"
+        app:layout_constraintEnd_toStartOf="@id/arrowLike"
+        app:layout_constraintStart_toEndOf="@id/arrowDislike"
+        app:layout_constraintTop_toTopOf="@id/arrowDislike" />
+
+    <ImageView
+        android:id="@+id/arrowLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_arrow_like"
+        app:layout_constraintBottom_toTopOf="@id/card_stack_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/card_stack_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/checkMatchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/check_match"
+        app:layout_constraintEnd_toStartOf="@id/signOutButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/sign_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

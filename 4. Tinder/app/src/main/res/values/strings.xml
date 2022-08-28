@@ -7,6 +7,13 @@
     <string name="facebook_client_token">d56d36f71387d6594b2714f700032ff2</string>
     <string name="hint_email">이메일주소</string>
     <string name="hint_password">비밀번호</string>
-    <string name="login_with">Login with</string>
-    <string name="your_web_client_id">986767986824-aah5qlr6n5joklfvlgcm0rgvie7louik.apps.googleusercontent.com</string>
+    <string name="login_with">Sign-in with</string>
+    <string name="input_user_name">사용하실 닉네임을 입력해주세요!</string>
+    <string name="save">저장</string>
+    <string name="check_match">매칭확인</string>
+    <string name="sign_out">로그아웃</string>
+    <string name="match_user_list">매칭된 유저 목록</string>
+    <string name="swipe">양쪽으로 스와이프!</string>
+    <string name="like">좋아요</string>
+    <string name="dislike">싫어요</string>
 </resources>

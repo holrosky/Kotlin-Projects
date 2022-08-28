@@ -13,8 +13,10 @@ import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.kotlin_project.tinder.Constant.USERS_PATH_STRING
+import com.kotlin_project.tinder.Constant.USER_ID_PATH_STRING
 
 class LoginActivity : AppCompatActivity() {
     private val idEditText: EditText by lazy {
@@ -26,16 +28,24 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private lateinit var callBackManager: CallbackManager
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         callBackManager = CallbackManager.Factory.create()
+        auth = FirebaseAuth.getInstance()
 
         initLoginButton()
         initSignUpButton()
         initFacebookLoginButton()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        callBackManager.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun initLoginButton() {
@@ -50,10 +60,10 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Firebase.auth.signInWithEmailAndPassword(id, password)
+            auth.signInWithEmailAndPassword(id, password)
                 .addOnCompleteListener { login ->
                     if (login.isSuccessful)
-                        finish()
+                        loginSuccess()
                     else {
                         val errorMsg = when (login.exception) {
                             is FirebaseAuthWeakPasswordException -> "비밀번호는 6자리 이상이여야 합니다!"
@@ -80,11 +90,11 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Firebase.auth.createUserWithEmailAndPassword(id, password)
+            auth.createUserWithEmailAndPassword(id, password)
                 .addOnCompleteListener { signUp ->
                     if (signUp.isSuccessful) {
                         Toast.makeText(this, "회원가입 완료!", Toast.LENGTH_SHORT).show()
-                        finish()
+                        loginSuccess()
                     } else {
                         val errorMsg = when (signUp.exception) {
                             is FirebaseAuthWeakPasswordException -> "비밀번호는 6자리 이상이여야 합니다!"
@@ -108,9 +118,9 @@ class LoginActivity : AppCompatActivity() {
                 override fun onSuccess(result: LoginResult) {
                     val credential = FacebookAuthProvider.getCredential(result.accessToken.token)
 
-                    Firebase.auth.signInWithCredential(credential)
+                    auth.signInWithCredential(credential)
                         .addOnCompleteListener {
-                            finish()
+                            loginSuccess()
                         }
                 }
 
@@ -123,10 +133,18 @@ class LoginActivity : AppCompatActivity() {
             })
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun loginSuccess() {
+        if (auth.currentUser == null) {
+            Toast.makeText(this, "로그인에 실패하였습니다!", Toast.LENGTH_SHORT).show()
+            return
+        }
 
-        callBackManager.onActivityResult(requestCode, resultCode, data)
+        val userId = auth.currentUser?.uid.orEmpty()
+        val currentUserDB = Firebase.database.reference.child(USERS_PATH_STRING).child(userId)
+        val user = mutableMapOf<String, Any>()
+        user[USER_ID_PATH_STRING] = userId
+        currentUserDB.updateChildren(user)
+
+        finish()
     }
 }
