@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Second hand trade</string>
+    <string name="home">홈</string>
+    <string name="chat">채팅</string>
+    <string name="my_info">내정보</string>
+    <string name="trade">중고거래</string>
+</resources>
