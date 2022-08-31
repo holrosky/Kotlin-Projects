@@ -14,4 +14,7 @@
     <string name="chat">채팅</string>
     <string name="my_info">내정보</string>
     <string name="trade">중고거래</string>
+
+    <string name="input_user_name">사용하실 닉네임을 입력해주세요!</string>
+    <string name="save">저장</string>
 </resources>

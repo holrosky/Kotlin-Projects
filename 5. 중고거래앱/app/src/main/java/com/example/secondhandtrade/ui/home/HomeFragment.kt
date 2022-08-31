@@ -11,7 +11,6 @@ import com.example.secondhandtrade.Constant.ITEM_PATH_STRING
 import com.example.secondhandtrade.LoginActivity
 import com.example.secondhandtrade.R
 import com.example.secondhandtrade.databinding.FragmentHomeBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ChildEventListener
