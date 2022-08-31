@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Second hand trade</string>
+    <string name="login">로그인</string>
+    <string name="signup">회원가입</string>
+    <string name="hint_email">이메일주소</string>
+    <string name="hint_password">비밀번호</string>
+    <string name="login_with">Sign-in with</string>
+
+    <string name="facebook_app_id">481428673497606</string>
+    <string name="fb_login_protocol_scheme">fb481428673497606</string>
+    <string name="facebook_client_token">f9e36b7489c5157a46b26731a58f7b8e</string>
+
     <string name="home">홈</string>
     <string name="chat">채팅</string>
     <string name="my_info">내정보</string>
