@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.secondhandtrade.databinding.ItemBinding
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -20,7 +22,10 @@ class ItemAdapter : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
 
             binding.titleTextView.text = itemModel.title
             binding.dateTextView.text = format.format(date).toString()
-            binding.priceTextView.text = itemModel.price
+
+            val formatter: NumberFormat = DecimalFormat("#,###")
+            val formattedPrice: String = formatter.format(itemModel.price.toLong())
+            binding.priceTextView.text = "${formattedPrice}원"
 
             if (itemModel.imgUrl.isNotEmpty())
 

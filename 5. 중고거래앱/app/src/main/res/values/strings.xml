@@ -17,4 +17,9 @@
 
     <string name="input_user_name">사용하실 닉네임을 입력해주세요!</string>
     <string name="save">저장</string>
+    <string name="upload_my_item">내물건 올리기</string>
+    <string name="item_detail">물건 상세 설명</string>
+    <string name="price">가격</string>
+    <string name="item_name">물건명</string>
+    <string name="img_upload">이미지 업로드</string>
 </resources>
