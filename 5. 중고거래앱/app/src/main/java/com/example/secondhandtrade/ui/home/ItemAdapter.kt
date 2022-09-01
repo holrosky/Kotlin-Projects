@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.secondhandtrade.Constant.DEFAULT_IMG_URI
 import com.example.secondhandtrade.databinding.ItemBinding
 import java.text.DecimalFormat
 import java.text.NumberFormat
@@ -16,6 +17,7 @@ import java.util.*
 class ItemAdapter : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
     inner class ViewHolder(private val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(itemModel: ItemModel) {
             val format = SimpleDateFormat("MM월 dd일")
             val date = Date(itemModel.createdAt)
@@ -27,11 +29,15 @@ class ItemAdapter : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
             val formattedPrice: String = formatter.format(itemModel.price.toLong())
             binding.priceTextView.text = "${formattedPrice}원"
 
-            if (itemModel.imgUrl.isNotEmpty())
+            var imgUri = itemModel.imgUrl
 
-                Glide.with(binding.thumbnailImageView)
-                    .load(itemModel.imgUrl)
-                    .into(binding.thumbnailImageView)
+            if (imgUri.isEmpty())
+                imgUri = DEFAULT_IMG_URI
+
+            Glide.with(binding.thumbnailImageView)
+                .load(imgUri)
+                .into(binding.thumbnailImageView)
+
         }
     }
 

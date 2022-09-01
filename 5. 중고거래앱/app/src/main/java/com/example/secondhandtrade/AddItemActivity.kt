@@ -6,12 +6,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.example.secondhandtrade.Constant.ITEM_PATH_STRING
 import com.example.secondhandtrade.Constant.ITEM_PHOTO_PATH_STRING
 import com.example.secondhandtrade.ui.home.ItemModel
@@ -51,7 +49,6 @@ class AddItemActivity : AppCompatActivity() {
     }
 
     private var selectedUri: Uri? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,7 +110,7 @@ class AddItemActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Toast.makeText(this, "등록중...", Toast.LENGTH_SHORT).show()
+            showProgressBar()
 
             if (selectedUri != null) {
                 val photoUri = selectedUri ?: return@setOnClickListener
@@ -123,6 +120,7 @@ class AddItemActivity : AppCompatActivity() {
                     },
                     errorHandler = {
                         Toast.makeText(this, "사진 업로드에 실패하였습니다!", Toast.LENGTH_SHORT).show()
+                        hideProgressBar()
                     }
                 )
             } else {
@@ -199,6 +197,7 @@ class AddItemActivity : AppCompatActivity() {
             ItemModel(sellerId, title, System.currentTimeMillis(), price, imageUri, detail)
         itemDB.push().setValue(model)
 
+        hideProgressBar()
         finish()
     }
 
@@ -220,5 +219,24 @@ class AddItemActivity : AppCompatActivity() {
                 }
             }
 
+    }
+
+    private fun showProgressBar() {
+        findViewById<ProgressBar>(R.id.progressBar).isVisible = true
+    }
+
+    private fun hideProgressBar() {
+        findViewById<ProgressBar>(R.id.progressBar).isVisible = false
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setMessage("물건 등록을 취소하시겠습니까?")
+            .setNegativeButton("취소") { _, _ ->}
+            .setPositiveButton("확인") { _, _ ->
+                finish()
+            }
+            .create()
+            .show()
     }
 }
