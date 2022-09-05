@@ -1,4 +1,5 @@
 package com.example.secondhandtrade.ui.home
+import java.io.Serializable
 
 data class ItemModel(
     val sellerId: String,
@@ -7,6 +8,6 @@ data class ItemModel(
     val price: String,
     val imgUrl: String,
     val itemDetail: String
-) {
+): Serializable {
     constructor(): this("", "", 0, "", "", "")
 }

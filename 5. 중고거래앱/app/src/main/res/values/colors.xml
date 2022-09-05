@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#CCCCCC</color>
     <color name="app_color_orange">#FF9A1E</color>
+    <color name="disabled_color">#000000</color>
 
 </resources>

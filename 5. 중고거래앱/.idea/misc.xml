@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/drawable/edit_text_selector.xml" value="0.1685" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/drawable/item_message.xml" value="0.1695" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_add_item.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_chat.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_chat_room.xml" value="0.2692502532928065" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_item_detail.xml" value="0.33" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_login.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/chat.xml" value="0.25" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/fragment_chat.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/fragment_home.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/fragment_my_page.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/item.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/item_message.xml" value="0.19746376811594202" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/vvvv.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.31302083333333336" />
         <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.25" />

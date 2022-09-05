@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var userDB: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
-    private var mBackWait:Long = 0
+    private var mBackWait: Long = 0
 
     private val bottomNavigationView: BottomNavigationView by lazy {
         findViewById(R.id.bottomNavigationView)
@@ -135,9 +135,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(System.currentTimeMillis() - mBackWait >=2000 ) {
+        if (System.currentTimeMillis() - mBackWait >= 2000) {
             mBackWait = System.currentTimeMillis()
-            Toast.makeText(this,"뒤로가기 버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show()
         } else {
             finish()
         }

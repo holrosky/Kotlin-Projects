@@ -1,8 +1,10 @@
 package com.example.secondhandtrade.ui.home
 
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +16,7 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class ItemAdapter : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
+class ItemAdapter(val onItemClicked: (ItemModel) -> Unit) : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
     inner class ViewHolder(private val binding: ItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -24,10 +26,18 @@ class ItemAdapter : ListAdapter<ItemModel, ItemAdapter.ViewHolder>(diffUtil) {
 
             binding.titleTextView.text = itemModel.title
             binding.dateTextView.text = format.format(date).toString()
+            binding.root.setOnClickListener {
+                onItemClicked(itemModel)
+            }
 
-            val formatter: NumberFormat = DecimalFormat("#,###")
-            val formattedPrice: String = formatter.format(itemModel.price.toLong())
-            binding.priceTextView.text = "${formattedPrice}원"
+            if(itemModel.price == "0") {
+                binding.priceTextView.text = "나눔"
+                binding.priceTextView.setTextColor(Color.parseColor("#FF9A1E"))
+            } else {
+                val formatter: NumberFormat = DecimalFormat("#,###")
+                val formattedPrice: String = formatter.format(itemModel.price.toLong())
+                binding.priceTextView.text = "${formattedPrice}원"
+            }
 
             var imgUri = itemModel.imgUrl
 

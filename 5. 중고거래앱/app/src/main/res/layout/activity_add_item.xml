@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:backgroundTint="@color/app_color_orange"
-            android:text="등록하기"/>
+            android:text="@string/upload"/>
     </LinearLayout>
 
     <ProgressBar

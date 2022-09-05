@@ -45,7 +45,8 @@ class MyPageFragment : Fragment(R.layout.fragment_my_page) {
         if (auth.currentUser == null) {
             startActivity(Intent(context, LoginActivity::class.java))
         } else {
-            userDB = Firebase.database.reference.child(Constant.USERS_PATH_STRING).child(getCurrentUserId())
+            userDB = Firebase.database.reference.child(Constant.USERS_PATH_STRING)
+                .child(getCurrentUserId())
 
             fragmentMyPageBinding = FragmentMyPageBinding.bind(view)
             binding = fragmentMyPageBinding
@@ -101,11 +102,12 @@ class MyPageFragment : Fragment(R.layout.fragment_my_page) {
         val userEmail = mutableMapOf<String, Any>()
         val userId = getCurrentUserId()
         userName[Constant.USER_ID_PATH_STRING] = userId
-        userName[Constant.USER_NAME_PATH_STRING] = fragmentMyPageBinding.nameEditText.text.toString()
+        userName[Constant.USER_NAME_PATH_STRING] =
+            fragmentMyPageBinding.nameEditText.text.toString()
 
         userEmail[Constant.USER_ID_PATH_STRING] = userId
-        userEmail[Constant.USER_EMAIL_PATH_STRING] = fragmentMyPageBinding.emailEditText.text.toString()
-
+        userEmail[Constant.USER_EMAIL_PATH_STRING] =
+            fragmentMyPageBinding.emailEditText.text.toString()
 
         if (fragmentMyPageBinding.passwordEditText.text.isEmpty()) {
             userDB.apply {

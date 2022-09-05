@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.secondhandtrade.AddItemActivity
 import com.example.secondhandtrade.Constant.ITEM_PATH_STRING
+import com.example.secondhandtrade.ItemDetailActivity
 import com.example.secondhandtrade.LoginActivity
 import com.example.secondhandtrade.R
 import com.example.secondhandtrade.databinding.FragmentHomeBinding
@@ -60,9 +61,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         itemList.clear()
 
-
         itemDB = Firebase.database.reference.child(ITEM_PATH_STRING)
-        itemAdapter = ItemAdapter()
+        itemAdapter = ItemAdapter(onItemClicked = { itemModel ->
+            if(auth.currentUser?.uid == null) {
+                startActivity(Intent(context, LoginActivity::class.java))
+                return@ItemAdapter
+            } else {
+                val intent = Intent(context, ItemDetailActivity::class.java)
+
+                intent.putExtra("itemModel", itemModel)
+                startActivity(Intent(intent))
+            }
+        })
 
         fragmentHomeBinding.itemRecyclerView.layoutManager = LinearLayoutManager(context)
         fragmentHomeBinding.itemRecyclerView.adapter = itemAdapter
