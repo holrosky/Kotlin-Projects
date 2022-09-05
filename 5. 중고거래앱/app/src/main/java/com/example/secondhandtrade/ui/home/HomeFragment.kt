@@ -60,6 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         itemList.clear()
 
+
         itemDB = Firebase.database.reference.child(ITEM_PATH_STRING)
         itemAdapter = ItemAdapter()
 

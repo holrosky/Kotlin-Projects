@@ -2,6 +2,7 @@ package com.example.secondhandtrade
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.secondhandtrade.Constant.USERS_PATH_STRING
@@ -126,6 +127,11 @@ class MainActivity : AppCompatActivity() {
                 replace(R.id.frameLayout, fragment)
                 commit()
             }
+    }
+
+    fun bottomNavigationViewPerformClick(menu_id: Int) {
+        val view: View = bottomNavigationView.findViewById(menu_id)
+        view.performClick()
     }
 
     override fun onBackPressed() {

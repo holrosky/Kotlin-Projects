@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_add_item.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/activity_main.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/fragment_home.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/fragment_my_page.xml" value="0.19202898550724637" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/layout/item.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/Taehee/Desktop/Kotlin-Projects/5. 중고거래앱/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.31302083333333336" />
         <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
