@@ -229,7 +229,7 @@ Clean Architecture를 쉽게 구현할 수 있도록 라이브러리들을 Andro
 
 ### Databinding Adapter
 ***XML 내에서 속성값을 마음대로 커스텀마이징*** 할 수 있게 해준다.
-```XLM
+```xml
 <data>
     <variable
         name="videoModel"
