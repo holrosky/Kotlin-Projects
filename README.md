@@ -44,6 +44,8 @@ A repository for personal Kotlin projects
 
 + Retrofit2
 + BottomSheetBehavior
++ RecyclerView
++ RecyclerViewAdapter
 + Databinding
 + Databinding Adapter
 
@@ -52,6 +54,8 @@ A repository for personal Kotlin projects
 + Retrofit2
 + MotionLayout
 + ExoPlayer
++ RecyclerView
++ RecyclerViewAdapter
 + Databinding
 + Databinding Adapter
 + ViewModel
