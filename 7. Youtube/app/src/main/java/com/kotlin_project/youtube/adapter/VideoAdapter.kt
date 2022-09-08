@@ -13,8 +13,6 @@ import com.kotlin_project.youtube.model.VideoModel
 class VideoAdapter(val onClickListener: (VideoModel) -> Unit) :
     ListAdapter<VideoModel, VideoAdapter.ItemViewHolder>(diffUtil) {
 
-    //private var listener: ItemClickListener? = null
-
     inner class ItemViewHolder(private val binding: ItemVideoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -23,14 +21,6 @@ class VideoAdapter(val onClickListener: (VideoModel) -> Unit) :
             binding.videoContainerLayout.setOnClickListener {
                 onClickListener(videoModel)
             }
-
-//            binding.viewPagerCardView.setOnClickListener {
-//                val pos = adapterPosition
-//                if (pos != RecyclerView.NO_POSITION) {
-//                    if (listener == null) return@setOnClickListener
-//                    listener?.sendValue(accommodationModel, pos)
-//                }
-//            }
         }
     }
 
@@ -46,10 +36,6 @@ class VideoAdapter(val onClickListener: (VideoModel) -> Unit) :
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(currentList[position])
     }
-
-//    fun itemClickListener(listener: ItemClickListener) {
-//        this.listener = listener
-//    }
 
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<VideoModel>() {

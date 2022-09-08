@@ -47,7 +47,6 @@ class PlayerFragment: Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_player, container, false)
 
-        Log.e("djakldjad","created!!")
         fragmentViewModel = ViewModelProvider(requireActivity()).get(FragmentViewModel::class.java)
         binding?.fragmentViewModel = fragmentViewModel
         binding?.lifecycleOwner = viewLifecycleOwner
