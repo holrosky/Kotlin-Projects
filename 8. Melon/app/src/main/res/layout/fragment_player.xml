@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="musicModelViewModel"
+            type="com.kotlin_project.melon.model.MusicViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/playerViewGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="trackTextView, artistTextView, coverImageCoverView, bottomBackgroundView, playerSeekBar,currentPlayTimeTextView,totalPlayTimeTextView" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/playListGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="titleTextView, playListRecyclerView, playListSeekBar" />
+
+        <View
+            android:id="@+id/topBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/gray_97"
+            app:layout_constraintBottom_toTopOf="@id/bottomBackgroundView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="3" />
+
+        <View
+            android:id="@+id/bottomBackgroundView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topBackgroundView"
+            app:layout_constraintVertical_weight="2" />
+
+        <TextView
+            android:id="@+id/trackTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@{musicModelViewModel.track}"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/play_list"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/artistTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@{musicModelViewModel.artist}"
+            android:textColor="@color/gray_aa"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trackTextView" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/coverImageCoverView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="36dp"
+            android:layout_marginBottom="180dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H, 1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/artistTextView">
+
+            <ImageView
+                android:id="@+id/coverImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:imageUrl="@{musicModelViewModel.coverUrl}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/playListRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/playerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:use_controller="false" />
+
+        <SeekBar
+            android:id="@+id/playerSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginBottom="30dp"
+            android:max="@{(int)(musicModelViewModel.duration/1000)}"
+            android:maxHeight="4dp"
+            android:minHeight="4dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="@{((int)musicModelViewModel.playPosition/1000)}"
+            android:progressDrawable="@drawable/player_seek_bar_background"
+            android:progressTint="@color/app_color_orange"
+            android:thumb="@drawable/player_seek_bar_thumb"
+            android:thumbTint="@color/app_color_orange"
+            app:layout_constraintBottom_toTopOf="@id/playerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <SeekBar
+            android:id="@+id/playListSeekBar"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:clickable="false"
+            android:max="@{(int)(musicModelViewModel.duration/1000)}"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="@{(int)(musicModelViewModel.playPosition/1000)}"
+            android:progressTint="@color/app_color_orange"
+            android:thumbTint="@color/app_color_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerView" />
+
+        <TextView
+            android:id="@+id/currentPlayTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/app_color_orange"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/playerSeekBar"
+            app:layout_constraintTop_toBottomOf="@id/playerSeekBar"
+            app:timeText="@{musicModelViewModel.playPosition}" />
+
+        <TextView
+            android:id="@+id/totalPlayTimeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/gray_97"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/playerSeekBar"
+            app:layout_constraintTop_toBottomOf="@id/playerSeekBar"
+            app:timeText="@{musicModelViewModel.duration}" />
+
+        <ImageView
+            android:id="@+id/playImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="@{() -> musicModelViewModel.controlButtonClick()}"
+            app:controlButtonImage="@{musicModelViewModel.isPlaying()}"
+            app:layout_constraintBottom_toBottomOf="@id/playerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerView"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/skipNextImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_skip_next_48"
+            app:layout_constraintBottom_toBottomOf="@id/playerView"
+            app:layout_constraintEnd_toEndOf="@id/playerView"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toEndOf="@id/playImageView"
+            app:layout_constraintTop_toTopOf="@id/playerView"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/skipPreviousImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_skip_previous_48"
+            app:layout_constraintBottom_toBottomOf="@id/playerView"
+            app:layout_constraintEnd_toStartOf="@id/playImageView"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/playerView"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/playListImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:onClick="@{() -> musicModelViewModel.playListButtonClick()}"
+            android:src="@drawable/ic_playlist_play_48"
+            app:layout_constraintBottom_toBottomOf="@id/playerView"
+            app:layout_constraintEnd_toStartOf="@id/skipPreviousImageView"
+            app:layout_constraintStart_toStartOf="@id/playerView"
+            app:layout_constraintTop_toTopOf="@id/playerView"
+            app:tint="@color/black" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
