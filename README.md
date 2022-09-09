@@ -61,3 +61,13 @@ A repository for personal Kotlin projects
 + ViewModel
 + LiveData
 
+### [7. Melon](https://github.com/holrosky/Kotlin-Projects/tree/main/8.%20Melon)
+
++ Retrofit2
++ ExoPlayer
++ RecyclerView
++ RecyclerViewAdapter
++ MVVM with Databinding
++ Databinding Adapter
++ ViewModel
++ LiveData
