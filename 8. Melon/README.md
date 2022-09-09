@@ -120,9 +120,9 @@ Clean Architecture를 쉽게 구현할 수 있도록 라이브러리들을 Andro
     Fragment는 Actvitiy와 다르게 onDestroy 가 호출되지 않은 상태에서 onCreateView 가 여러 번 호출될 수 있기 때문이다.*** 
     이로 인해 ***Fragment의 Lifecycle은 Destroy 되지 않은 상황에서 LiveData에 새로운 Observer가 등록되어 복수의 Observer가 호출되는 현상이 발생할 가능성이 있기 때문이다.***
     
-    + ***ViewModel에서는 Activity나 Fragment의 context를 참조해서는 안된다.*** 만약 참조를 한다면 위에서 언급한대로 ViewModel은 Activity나 Fragment의 생명주기에 영향을 받기 때문에
-      만약 Activity나 Fragment가 onDestroy가 되어도 ViewModel에 의해 여전히 참조된다. onDestroy된 Activity나 Fragment는 Garbage Collector에 의해 메모리상에서 release가 되어야 
-      ***하지만 ViewModel이 참조하고 있으므로 GC의 대상이 되지않아 메모리상에 계속 존재하게 된다. 즉 메모리 누수 (Memory Leak) 현상이 발생한다.*** 
+    + ***ViewModel에서는 Activity나 Fragment의 context를 참조해서는 안된다.*** 만약 참조를 한다면 위에서 언급한대로 ViewModel은 Activity나 Fragment의 생명주기에 영향을 받지
+      않기 때문에 만약 Activity나 Fragment가 onDestroy가 되어도 ViewModel에 의해 여전히 참조된다. onDestroy된 Activity나 Fragment는 Garbage Collector에 의해 메모리상에서 
+      release가 되어야 하지만 ***ViewModel이 참조하고 있으므로 GC의 대상이 되지않아 메모리상에 계속 존재하게 된다. 즉 메모리 누수 (Memory Leak) 현상이 발생한다.*** 
 
 안드로이드에서 기본적으로 MVVM 패턴을 구현하기 위해서는 View에서 ViewModel의 데이터를 Observe 하는 코드를 작성한다. 이때 ***ViewModel의 데이터는 LiveData<T> 클래스로 선언***된다.
 ``` kotlin
