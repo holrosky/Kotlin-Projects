@@ -2,8 +2,7 @@
 ***API로 받아온 음악 목록을 RecyclerView에 보여주며 ExoPlayer로 재생할 수 있다.***
 
 ![1](https://user-images.githubusercontent.com/67175445/189359712-e21ebe9f-f1f9-4bcc-8bd4-7b71edba87cf.png)
-![2](https://user-images.githubusercontent.com/67175445/189359716-c4cf1cb5-d04b-4a35-a6b4-50c7d0b65afe.png)
-
+![2](https://user-images.githubusercontent.com/67175445/189360905-f22daed1-5b10-4ff0-a005-014b265c204b.png)
 
 
 # Retrofit2 (ver. 2.9.0)
