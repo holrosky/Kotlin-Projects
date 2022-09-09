@@ -58,6 +58,10 @@ class PlayerFragment : Fragment() {
             }
         }
 
+        musicModelViewModel.track.observe(viewLifecycleOwner) {
+            binding?.trackTextView?.text = it
+        }
+
         musicModelViewModel.isWatchingPlayListView.observe(viewLifecycleOwner) {
             binding?.playerViewGroup?.isVisible =
                 musicModelViewModel.isWatchingPlayListView.value != true
