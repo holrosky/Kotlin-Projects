@@ -80,6 +80,5 @@ A repository for personal Kotlin projects
 + RecyclerView
 + RecyclerViewAdapter
 + MVVM with Databinding
-+ Databinding Adapter
 + ViewModel
 + LiveData
