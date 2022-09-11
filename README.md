@@ -71,3 +71,15 @@ A repository for personal Kotlin projects
 + Databinding Adapter
 + ViewModel
 + LiveData
+
+### [9. LocationSearch](https://github.com/holrosky/Kotlin-Projects/tree/main/9.%20LocationSearch)
+
++ GoogleMaps
++ Retrofit2
++ okhttp3
++ RecyclerView
++ RecyclerViewAdapter
++ MVVM with Databinding
++ Databinding Adapter
++ ViewModel
++ LiveData
