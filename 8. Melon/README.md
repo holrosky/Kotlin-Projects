@@ -233,6 +233,8 @@ object BindingAdapter {
   정보를 담고있는 duration 값이 업데이트 될 때마다 Databinding에 의해 ```setTimeText``` 함수가 호출되어 UI를 업데이트한다.
   
 # 느낀점
-  이번 프로젝트에서는 MVVM 패턴을 활용하고자 노력을 많이 했지만 ViewModel과 Model의 구분이 모호하다. 앞으로는 Model에서 Database 혹은 API등의 data 처리를 하여
-  ViewModel과 Model을 확실히 구분할 수 있도록 해야겠다.
+  이번 프로젝트에서는 MVVM 패턴을 활용하고자 노력을 많이 했지만 ViewModel과 Model의 구분이 모호하다.   
+  
+  ![다운로드](https://user-images.githubusercontent.com/67175445/189507460-5e25779b-286a-4fef-b1e9-a9c740fa9a48.png)   
 
+  앞으로는 구글에서 권장하는 위와 같은 구조로 코드르 작성하도록 노력해야겠다.
