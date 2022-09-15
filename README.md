@@ -74,6 +74,7 @@ A repository for personal Kotlin projects
 
 ### [9. LocationSearch](https://github.com/holrosky/Kotlin-Projects/tree/main/9.%20LocationSearch)
 
++ Coroutine
 + GoogleMaps
 + Retrofit2
 + okhttp3
