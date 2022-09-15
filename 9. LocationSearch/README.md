@@ -254,3 +254,43 @@ ViewModel은 해당 요청을 Repositoty(API)에게 요청을 하고 API로 수�
 데이터를 받은 ViewModel은 자신의 LiveData를 업데이트하고 이를 관찰하고 있던 View는 UI 작업을 시작한다.   
 따라서 View는 로직에 관여하지 않으며 단순히 View에만 신경을 쓴다.***   
 
+# Coroutine (매우 중요)
+***Coroutine은 메모리를 효율적으로 관리하면서 비동기 처리를 가능하게 해준다.*** 기존의 Thread와 비슷한 기능을 수행하지만 차이가 있다. Thread는 한번 시작되면 끝날때 까지 실행되지만 ***Coroutine은 각각의 routine이 원하는 곳에서 작업을 중단 및 재개가 가능***하다. 또한 Coroutine은 Thread 보다 작은 개념으로 Thread안에 존재하게 되므로 Context Switch 같은 등의 이유로 오버헤드가 발생하지 않는다. ***각각의 routine은 launch 키워드 scope 단위 블록으로 묶어서 코드로 작성하기 때문에 코드도 간결해지는 장점이 있다.*** 해당 프로젝트에서는 Tmap으로 Api 요청을 보내고 응답을 받는 작업을 Coroutine으로 처리하였다.
+
+```kotlin
+fun requestKeywordSearch(keyword: String, appKey: String) {
+    CoroutineScope(Dispatchers.IO).launch {
+        poiRepository.getKeywordSearch(keyword, appKey).let { response ->
+            if (response.isSuccessful) {
+                if (response.body() == null) {
+                    _poiModel.postValue(emptyList())
+                    return@launch
+                }
+
+                _poiModel.postValue(response.body()!!.searchPoiInfo.pois.poi)
+            }
+        }
+    }
+}
+```
+
+### Coroutine Scope
++ ***GlobalScope*** : 앱의 생명주기와 함께 동작한다. 따라서 별도 생명주기 관리가 필요없으므로 앱의 시작부터 종료까지 장시간 실행되는 Coroutine에 적합하다.
++ ***CoroutineScope*** : 필요할 때만 실행되고 완료되면 Coroutine을 종료하는 Scope이다.
++ ***ViewModelScope*** : Jetpack 아키텍처의 ViewModel 컴포넌트 사용시 ViewModel 인스턴스에서 사용하기 위해 제공되는 Scope이다. 생명 주기 또한 ViewModel을 따라간다.
+
+### Coroutine Dispatcher
++ ***Default*** : 안드로이드 기본 쓰레드풀을 사용하며 CPU를 많이 요구하는 작업에 최적화 되어있다.
++ ***IO*** : 이미지 다운로드 및 파일 입출력 등 입출력에 최적화 되어있다 (네트워크, 디스크, DB 작업 등)
++ ***Main*** : 안드로이드 기본 쓰레드에서 Coroutine을 실행하며 UI와 상호작용에 최적화 되어있다.
++ ***Unconfined*** : 호출한 Context를 기본으로 사용하되 중지 후 다시 실행될 때 Context가 바뀌면 바뀐 컨텍스트를 사용한다.
+
+### Suspend
+코루틴의 가장 큰 특징이다. ***Coroutine scope 안에서 Suspend가 붙은 함수를 실행하게 되면 기존에 실행되던 작업을 멈추고 Suspend가 붙은 함수를 먼저 처리한다. 함수가 처리가 되면 중지되었던 기존 코드가 재개되어 다시 실행된다. 여기서 중요한점은 함수를 실행할 때 기존에 실행하던 작업을 중지한다고 해서 Thread가 멈추지 않는다는 점이다.***
+```kotlin
+suspend fun getKeywordSearch(keyword: String,
+                             appKey: String) = api.getKeyowrdSearch(keyword = keyword, appKey = appKey)
+
+suspend fun getLocationInfoByLatLon(lat: Double, lon: Double,
+                            appKey: String) = api.getLocationInfoByLatLon(lat = lat, lon = lon, appKey = appKey)
+```
