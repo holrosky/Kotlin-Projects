@@ -249,6 +249,20 @@ Latitude와 Longitude를 받아와 실시간으로 Tmap API로 부터 주소 정
   }
   ```
   
++ Repository   
+ 
+  ```kotlin
+  class PoiRepository {
+      private val api = PoiApi.create()
+
+      suspend fun getKeywordSearch(keyword: String,
+                                   appKey: String) = api.getKeyowrdSearch(keyword = keyword, appKey = appKey)
+
+      suspend fun getLocationInfoByLatLon(lat: Double, lon: Double,
+                                  appKey: String) = api.getLocationInfoByLatLon(lat = lat, lon = lon, appKey = appKey)
+  }
+  ```
+  
 ***View (Activity) 에서는 ViewModel의 LiveData를 Observe한다. 또한 필요시에는 ViewMdel에게 데이터 업데이트를 요청한다.   
 ViewModel은 해당 요청을 Repositoty(API)에게 요청을 하고 API로 수신받은 데이터를 Model에 저장함과 동시에 ViewModel에게 전해준다.   
 데이터를 받은 ViewModel은 자신의 LiveData를 업데이트하고 이를 관찰하고 있던 View는 UI 작업을 시작한다.   
