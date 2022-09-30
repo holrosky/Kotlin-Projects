@@ -81,7 +81,7 @@
 
 # Databinding
 ***Databinding***은 ***Android Archictecture Components*** 의 한 부분으로서 UI 요소와 데이터를 프로그램적 방식으로 연결하지 않고, ***선언적 형식으로 결합할 수 있게 도와주는 라이브러리***를 말한다.
-이는 ***MVVM 개발 구조를 가능하게 만들어준다는 점에서 매우 중요한 개념***이다. Databinding 은 Viewbinding을 포함한 보다 더 큰 범위로서 작동한다.
+이는 ***MVVM 개발 구조를  만들어준다는 점에서 매우 중요한 개념***이다. Databinding 은 Viewbinding을 포함한 보다 더 큰 범위로서 작동한다.
 
 ▀ ***Databinding 사용 이유***   
 데이터 바인딩을 사용하면, ***데이터를 UI 요소에 연결하기 위해 필요한 코드를 최소화할 수 있다.***
