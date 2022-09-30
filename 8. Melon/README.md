@@ -55,33 +55,6 @@
 ***ExoPlayer는 Android 프레임워크에 속하지 않고 Android SDK에서 별도로 배포되는 구글에서 만든 미디어 재생 오픈소스 프로젝트이다.***
 다양한 종류의 미디어 파일을 쉽게 재생할 수 있도록 도와주며 준다. 별 다른 설정 없이도 네트워크로부터 미디어를 스트리밍 형태로 불러와 재생할 수도 있고 다양한 포맷들을 지원하며 커스터마이징도 지원한다.
 Youtube에서도 ExoPlayer를 사용한다.
-```kotlin
-val retrofit = Retrofit.Builder()
-    .baseUrl("https://run.mocky.io")
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-
-retrofit.create(MusicService::class.java)
-    .also {
-        it.listMusics()
-            .enqueue(object : Callback<MusicDTO> {
-                override fun onResponse(
-                    call: Call<MusicDTO>,
-                    response: Response<MusicDTO>
-                ) {
-                    response.body()?.let { musicDTO ->
-
-                        musicModelViewModel.musicList.value = musicDTO.mapper()
-
-                        initMusicList(musicModelViewModel.musicList.value.orEmpty())
-                    }
-                }
-
-                override fun onFailure(call: Call<MusicDTO>, t: Throwable) {}
-
-            })
-    }
-```
 
 # MVVM (Model - ViewModel - View) 아키텍쳐 패턴 (매우 중요. 복습 필수)
 MVVM을 이해하기 위해선 MVVM이 무엇을 보완하기 위해 고안되었는지 그 배경을 알 필요가있다. 
@@ -233,7 +206,7 @@ object BindingAdapter {
   정보를 담고있는 duration 값이 업데이트 될 때마다 Databinding에 의해 ```setTimeText``` 함수가 호출되어 UI를 업데이트한다.
   
 # 느낀점
-  이번 프로젝트에서는 MVVM 패턴을 활용하고자 노력을 많이 했지만 ViewModel과 Model의 구분이 모호하다.   
+  이번 프로젝트에서는 MVVM 패턴을 활용하고자 노력을 많이 했지만 구글에서 권장하는 구조는 .   
   
   ![다운로드](https://user-images.githubusercontent.com/67175445/189507460-5e25779b-286a-4fef-b1e9-a9c740fa9a48.png)   
 
