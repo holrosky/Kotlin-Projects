@@ -60,14 +60,14 @@ Youtube에서도 ExoPlayer를 사용한다.
 MVVM을 이해하기 위해선 MVVM이 무엇을 보완하기 위해 고안되었는지 그 배경을 알 필요가있다. 
 
 MVVM 패턴 이전에 MVC 패턴 (Model - Veiw - Controller)에서는 ***유저가 이벤트를 발생시키면
-Controller가 이를 담당하여 Model과 View에게 업데이트를 요청***하였다. 즉 Controller는 Model과 View를 이어주는 다리역할을 하였으며 Model과 View의 상호 의존도는 느슨해지는 패턴이였다.
-하지만 프로젝트의 규모가 커짐과 동시에 ***Controller가 담당하는 작업의 양이 늘어났고 이는 Controller에게 너무 부담이 되었다.***     
+Controller가 이를 담당하여 Model과 View에게 업데이트를 요청***하였다. 즉 Controller는 Model과 View를 이어주는 다리역할을 하였으나 View가 직접적으로 Model을 참조함으로서 View와 Model의 상호 의존도가 존재하는 패턴이였다.
+또한 프로젝트의 규모가 커짐과 동시에 ***Controller가 담당하는 작업의 양이 늘어났고 이는 Controller에게 너무 부담이 되었다.***     
 
-이를 해결하기 위해 MVVM 패턴이 고안되었는데, View는 유저가 발생시키는 이벤트를 받고 ViewModel의 데이터를 관찰(Observe)한다. ViewModel은 View가 요청한 데이터를 Model에 요구하고 Model은 해당 데이터를 ViewModel에게 넘겨준다.
+이를 해결하기 위해 MVP, MVVM 패턴이 고안되었는데, MVVM 패턴에서 View는 유저가 발생시키는 이벤트를 받고 ViewModel의 데이터를 관찰(Observe)한다. ViewModel은 View가 요청한 데이터를 Model에 요구하고 Model은 해당 데이터를 ViewModel에게 넘겨준다.
 여기서 ViewModel의 데이터가 갱신되고 이를 관찰하고 있던 View에서는 UI를 갱신한다.    
 
-***즉 View는 ViewModel을 관찰하고 ViewModel은 Model에 데이터 요청을하고 Data는 ViewModel이 요구하는 데이터만 넘겨주면 되는 구조이다.*** 
-이러한 구조 덕분에 View에서는 View에 관한 코드만 작성하면 되기때문에 나중에 View에서 문제가 있다면 View만 보면 된다.    
+***즉 View는 ViewModel을 관찰하고 ViewModel은 Model에 데이터 요청을하고 Modeld은 ViewModel이 요구하는 데이터만 넘겨주면 되는 구조이다.*** 
+이러한 구조 덕분에 View는 Model과 상호 의존도가 없으며 View에서는 View에 관한 코드만 작성하면 되기때문에 나중에 View에서 문제가 있다면 View만 보면 된다.    
 
 ***상호 의존도가 느슨해 짐으로서 유지 보수가 한결 쉬워지고 코드 가독성이 향상된 것이다.***    
 
