@@ -1,0 +1,30 @@
+package com.example.finedust.model.airInfo
+
+data class AirInfo(
+    val coFlag: Any?,
+    val coGrade: AirGrade?,
+    val coValue: String?,
+    val dataTime: String?,
+    val khaiGrade: AirGrade?,
+    val khaiValue: String?,
+    val mangName: String?,
+    val no2Flag: Any?,
+    val no2Grade: AirGrade?,
+    val no2Value: String?,
+    val o3Flag: Any?,
+    val o3Grade: AirGrade?,
+    val o3Value: String?,
+    val pm10Flag: Any?,
+    val pm10Grade: AirGrade?,
+    val pm10Grade1h: String?,
+    val pm10Value: String?,
+    val pm10Value24: String?,
+    val pm25Flag: Any?,
+    val pm25Grade: AirGrade?,
+    val pm25Grade1h: String?,
+    val pm25Value: String?,
+    val pm25Value24: String?,
+    val so2Flag: Any?,
+    val so2Grade: AirGrade?,
+    val so2Value: String?
+)

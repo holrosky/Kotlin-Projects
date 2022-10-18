@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FineDust</string>
+    <string name="additional_information">자료 출처: 환경부/한국환경공단\n주의 사항: 기관이 제공하는 자료는 “인증을 받지 않은 실시간자료”이므로 자료 오류 및 표출방식에 따라 값이 다를 수 있음</string>
+    <string name="error_msg">예기치 못한 문제가 발생했습니다.</string>
+    <string name="fine_dust">미세먼지</string>
+    <string name="loading">로딩중</string>
+</resources>
