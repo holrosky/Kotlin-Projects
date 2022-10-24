@@ -83,3 +83,15 @@ A repository for personal Kotlin projects
 + MVVM with Databinding
 + ViewModel
 + LiveData
+
+### [10. FineDust](https://github.com/holrosky/Kotlin-Projects/tree/main/10.%20FineDust)
+
++ Widget
++ Coroutine
++ Retrofit2
++ okhttp3
++ MVVM
++ Repository pattern
++ ViewModel
++ LiveData
++ ViewBinding
