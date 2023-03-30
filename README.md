@@ -95,3 +95,14 @@ A repository for personal Kotlin projects
 + ViewModel
 + LiveData
 + ViewBinding
+
+
+### [11. FreeImageSearch](https://github.com/holrosky/Kotlin-Projects/tree/master/11.%20FreeImageSearch)
+
++ Coroutine
++ Retrofit2
++ okhttp3
++ Repository pattern
++ ViewBinding
++ Facebook shimmer loading
++ Wallpaper manager
