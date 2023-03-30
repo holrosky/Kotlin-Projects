@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FreeImageSearch</string>
+    <string name="image_search_hint">이미지를 검색해주세요.</string>
+</resources>
