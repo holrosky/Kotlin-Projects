@@ -104,5 +104,6 @@ A repository for personal Kotlin projects
 + okhttp3
 + Repository pattern
 + ViewBinding
-+ Facebook shimmer loading
++ Facebook Shimmer
 + Wallpaper manager
++ Glide
