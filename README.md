@@ -84,7 +84,7 @@ A repository for personal Kotlin projects
 + ViewModel
 + LiveData
 
-### [10. FineDust](https://github.com/holrosky/Kotlin-Projects/tree/main/10.%20FineDust)
+### [10. FineDust](https://github.com/holrosky/Kotlin-Projects/tree/master/10.%20FineDust)
 
 + Widget
 + Coroutine
