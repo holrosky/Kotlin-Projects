@@ -12,13 +12,13 @@ interface StationDao {
 
     @Transaction
     @Query("SELECT * FROM StationEntity")
-    fun getStationWithSubways(): Flow<List<StationWithUndergroundsEntity>>
+    fun getStationWithUndergrounds(): Flow<List<StationWithUndergroundsEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertStations(station: List<StationEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSubways(subways: List<UndergroundEntity>)
+    suspend fun insertUndergrounds(undergrounds: List<UndergroundEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCrossReferences(reference: List<StationUndergroundCrossRefEntity>)

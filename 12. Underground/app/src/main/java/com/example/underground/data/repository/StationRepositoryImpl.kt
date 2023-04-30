@@ -21,7 +21,7 @@ class StationRepositoryImpl(
 ) : StationRepository {
 
     override val stations: Flow<List<Station>> =
-        stationDao.getStationWithSubways()
+        stationDao.getStationWithUndergrounds()
             .distinctUntilChanged()
             .map { it.toStations() }
             .flowOn(dispatcher)
@@ -31,14 +31,14 @@ class StationRepositoryImpl(
         val lastDatabaseUpdatedTimeMillis = preferenceManager.getLong(KEY_LAST_DATABASE_UPDATED_TIME_MILLIS)
 
         if (lastDatabaseUpdatedTimeMillis == null || fileUpdatedTimeMillis > lastDatabaseUpdatedTimeMillis) {
-            val stationSubways = stationApi.getStationSubways()
-            stationDao.insertStations(stationSubways.map { it.first })
-            stationDao.insertSubways(stationSubways.map { it.second })
+            val stationUndergrounds = stationApi.getStationUndergrounds()
+            stationDao.insertStations(stationUndergrounds.map { it.first })
+            stationDao.insertUndergrounds(stationUndergrounds.map { it.second })
             stationDao.insertCrossReferences(
-                stationSubways.map { (station, subway) ->
+                stationUndergrounds.map { (station, underground) ->
                     StationUndergroundCrossRefEntity(
                         station.stationName,
-                        subway.undergroundId
+                        underground.undergroundId
                     )
                 }
             )

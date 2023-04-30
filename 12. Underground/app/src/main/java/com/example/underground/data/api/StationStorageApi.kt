@@ -14,7 +14,7 @@ class StationStorageApi(
     override suspend fun getStationDataUpdatedTimeMillis(): Long =
         sheetReference.metadata.await().updatedTimeMillis
 
-    override suspend fun getStationSubways(): List<Pair<StationEntity, UndergroundEntity>> {
+    override suspend fun getStationUndergrounds(): List<Pair<StationEntity, UndergroundEntity>> {
         val downloadSizeBytes = sheetReference.metadata.await().sizeBytes
         val byteArray = sheetReference.getBytes(downloadSizeBytes).await()
 

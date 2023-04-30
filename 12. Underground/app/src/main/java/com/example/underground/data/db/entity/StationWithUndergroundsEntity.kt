@@ -11,5 +11,5 @@ class StationWithUndergroundsEntity (
         entityColumn = "undergroundId",
         associateBy = Junction(StationUndergroundCrossRefEntity::class)
     )
-    val subways: List<UndergroundEntity>
+    val undergrounds: List<UndergroundEntity>
 )

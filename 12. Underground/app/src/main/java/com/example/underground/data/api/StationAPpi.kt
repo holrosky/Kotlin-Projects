@@ -7,5 +7,5 @@ interface StationApi {
 
     suspend fun getStationDataUpdatedTimeMillis(): Long
 
-    suspend fun getStationSubways(): List<Pair<StationEntity, UndergroundEntity>>
+    suspend fun getStationUndergrounds(): List<Pair<StationEntity, UndergroundEntity>>
 }
