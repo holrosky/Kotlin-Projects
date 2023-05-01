@@ -31,17 +31,7 @@ class StationRepositoryImpl(
         val lastDatabaseUpdatedTimeMillis = preferenceManager.getLong(KEY_LAST_DATABASE_UPDATED_TIME_MILLIS)
 
         if (lastDatabaseUpdatedTimeMillis == null || fileUpdatedTimeMillis > lastDatabaseUpdatedTimeMillis) {
-            val stationUndergrounds = stationApi.getStationUndergrounds()
-            stationDao.insertStations(stationUndergrounds.map { it.first })
-            stationDao.insertUndergrounds(stationUndergrounds.map { it.second })
-            stationDao.insertCrossReferences(
-                stationUndergrounds.map { (station, underground) ->
-                    StationUndergroundCrossRefEntity(
-                        station.stationName,
-                        underground.undergroundId
-                    )
-                }
-            )
+            stationDao.insertStationUndergrounds(stationApi.getStationUndergrounds())
             preferenceManager.putLong(KEY_LAST_DATABASE_UPDATED_TIME_MILLIS, fileUpdatedTimeMillis)
         }
     }
